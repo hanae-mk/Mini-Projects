@@ -4,7 +4,7 @@
 
 using namespace std;
 
-enum enGameChoice {Stone = 1 , Paper = 2 , Scissor = 5};
+enum enGameChoice {Stone = 1 , Paper = 2 , Scissor = 3};
 enum enWinner {Player1 = 1 , Computer = 2 , Draw = 3};
 
 struct stRoundInfo
