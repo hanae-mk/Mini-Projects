@@ -110,7 +110,7 @@ struct stQuestion
 
 struct stQuizz
 {
-	stQuestion QuestionList[100]; //Rewatch vid of array of structure
+	stQuestion QuestionList[100]; 
 	short NumberOfQuestions = 0;
 	enQuestionsLevel QuestionLevel;
 	enOperationType OpType;
