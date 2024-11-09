@@ -197,7 +197,7 @@ stQuestion GenerateQuestion(enQuestionsLevel QuestionLevel, enOperationType OpTy
 
 	return Question;
 
-} //xwiya mashi sahel 
+}
 
 void GenerateQuizQuestions(stQuizz& Quizz) //Necessary to do & because you modify its info
 {
