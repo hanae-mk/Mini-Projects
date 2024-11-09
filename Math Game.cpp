@@ -4,16 +4,16 @@
 #include <cstdlib>
 using namespace std;
 
-enum enQuestionsLevel {EasyLevel = 1 , MedLevel = 2 , HardLevel = 3 , Mix = 4};
-enum enOperationType {Add = 1 , Sub = 2 , Mult = 3 , Div = 4 , MixOp = 5};
+enum enQuestionsLevel { EasyLevel = 1, MedLevel = 2, HardLevel = 3, Mix = 4 };
+enum enOperationType { Add = 1, Sub = 2, Mult = 3, Div = 4, MixOp = 5 };
 
 string GetOpTypeSymbol(enOperationType OpType)
 {
 	switch (OpType)
 	{
 	case enOperationType::Add:
-		return "+"; //problem li fat kan khsna daruri n3mlu break w hna la???
-		  
+		return "+"; 
+
 	case enOperationType::Sub:
 		return "-";
 
@@ -22,7 +22,7 @@ string GetOpTypeSymbol(enOperationType OpType)
 
 	case enOperationType::Div:
 		return "/";
-		
+
 	default:
 		return "Mix";
 
@@ -48,8 +48,10 @@ void SetScreenColor(bool Right)
 	if (Right)
 		system("color 2F");
 	else
+	{
 		system("color 4F");
-	cout << "\a";
+		cout << "\a";
+	}
 }
 
 short ReadHowManyQuestions()
@@ -134,7 +136,7 @@ short SimpleCalculator(int Number1, int Number2, enOperationType OpType)
 		return Number1 / Number2;
 	default:
 		return Number1 + Number2;
-		
+
 	}
 }
 
@@ -167,7 +169,7 @@ stQuestion GenerateQuestion(enQuestionsLevel QuestionLevel, enOperationType OpTy
 		Question.Number2 = RandomNumber(1, 10);
 
 		Question.CorrectAnswer = SimpleCalculator(Question.Number1, Question.Number2, OpType);
-		
+
 		Question.QuestionLevel = QuestionLevel;
 
 		return Question;
@@ -178,7 +180,7 @@ stQuestion GenerateQuestion(enQuestionsLevel QuestionLevel, enOperationType OpTy
 		Question.Number2 = RandomNumber(10, 50);
 
 		Question.CorrectAnswer = SimpleCalculator(Question.Number1, Question.Number2, OpType);
-		
+
 		Question.QuestionLevel = QuestionLevel;
 
 		return Question;
@@ -189,7 +191,7 @@ stQuestion GenerateQuestion(enQuestionsLevel QuestionLevel, enOperationType OpTy
 		Question.Number2 = RandomNumber(50, 100);
 
 		Question.CorrectAnswer = SimpleCalculator(Question.Number1, Question.Number2, OpType);
-		
+
 		Question.QuestionLevel = QuestionLevel;
 
 		return Question;
@@ -197,15 +199,15 @@ stQuestion GenerateQuestion(enQuestionsLevel QuestionLevel, enOperationType OpTy
 
 	return Question;
 
-}
+} //xwiya mashi sahel 
 
 void GenerateQuizQuestions(stQuizz& Quizz) //Necessary to do & because you modify its info
 {
-	
+
 	for (short Question = 0; Question < Quizz.NumberOfQuestions; Question++)
 	{
 		Quizz.QuestionList[Question] = GenerateQuestion(Quizz.QuestionLevel, Quizz.OpType);
-		
+
 	}
 }
 
@@ -239,7 +241,7 @@ void CorrectTheQuestionAnswer(stQuizz& Quizz, short QuestionNumber)
 	else
 	{
 		Quizz.QuestionList[QuestionNumber].AnswerResult = true;
-		Quizz.NumberOfWrongAnswers++;
+		Quizz.NumberOfRightAnswers++;
 
 		cout << "\nRight Answer :-)\n";
 
